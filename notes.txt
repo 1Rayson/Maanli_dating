@@ -1,0 +1,21 @@
+MySQL notes:
+
+For at få fat i brugerens personlige oplysninger:
+maanliUserProfile
+- Denne indeholder
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    firstName VARCHAR(50),
+    lastName VARCHAR (50),
+    age INT,
+    gender VARCHAR(20),
+    height INT
+
+
+For at få fat i brugerens login oplysninger (brugernavn og password):
+maanliUserLogin
+- Denne indeholder
+    id - INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username - VARCHAR(50),
+    userPassword - VARCHAR(60),
+    userID - INT NOT NULL
+Hvor userID refererer til brugerens ID fra maanliUserProfile
