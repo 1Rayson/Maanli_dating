@@ -1,6 +1,6 @@
  <?php
         session_start();
-        include("../mysql.php");
+        include("mySQL.php");
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,6 @@
     <title>Sign up</title>
 </head>
 <body>
-    
+    <form action=""></form>
 </body>
 </html>

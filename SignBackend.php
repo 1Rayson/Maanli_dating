@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../mysql.php");
+    include("mySQL.php");
     $firstName = (isset($_REQUEST['FirstName'])) ? $_REQUEST['FirstName']: "";
     $lastName = (isset($_REQUEST['LastName'])) ? $_REQUEST['LastName']: "";
     $userName = (isset($_REQUEST['UserName'])) ? $_REQUEST['UserName']: "";
