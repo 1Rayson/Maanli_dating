@@ -19,3 +19,31 @@ maanliUserLogin
     userPassword - VARCHAR(60),
     userID - INT NOT NULL
 Hvor userID refererer til brugerens ID fra maanliUserProfile
+
+Procedurer:
+    - InsertMaanliUserData
+    
+        CREATE PROCEDURE InsertMaanliUserData (
+        IN firstNameVar VARCHAR(50),
+        IN lastNameVar VARCHAR(50),
+        IN ageVar INT,
+        IN genderVar VARCHAR(20),
+        IN heightVar INT,
+        IN usernameVar VARCHAR(50),
+        IN userPasswordVar VARCHAR(60),
+        IN userIDVar INT
+    )
+    BEGIN
+        DECLARE EXIT HANDLER FOR SQLEXCEPTION, SQLWARNING
+        BEGIN
+            -- Do this if at least one query fails!
+            ROLLBACK;
+            SELECT 'A rollback has occured due to an error!' ErrorMessage;
+        END;
+        START TRANSACTION;
+            INSERT INTO maanliUserProfile (firstName, lastName, age, gender, height) VALUES (firstNameVar, lastNameVar, ageVar, genderVar, heightVar);
+            INSERT INTO maanliUserLogin (username, userPassword, userID) VALUES (usernameVar, userPasswordVar, userIDVar);
+        COMMIT;
+    END //
+
+    DELIMITER ;

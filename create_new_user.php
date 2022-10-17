@@ -12,11 +12,11 @@
         <form action="create_new_user.php" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username">
-            <label for="username">Password:</label>
+            <label for="userPassword">Password:</label>
             <input type="password" id="userPassword" name="userPassword">
-            <label for="username">First Name:</label>
+            <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName">
-            <label for="username">Last Name:</label>
+            <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName">
             <label for="age">Age:</label>
             <input type="number" id="age" name="age">
