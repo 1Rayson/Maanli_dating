@@ -12,6 +12,7 @@
     <title>Sign up</title>
 </head>
 <body>
+    <h1>Sign up!</h1>
       <form action="sign-up.php" method="post">
         <input type="text" name="firstName" placeholder="Firstname">
         <input type="text" name="lastName" placeholder="Lastname">
