@@ -1,1 +1,0 @@
-<!-- Used for connecting to database -->
