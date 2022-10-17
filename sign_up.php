@@ -1,6 +1,6 @@
  <?php
         session_start();
-        include("mySQL.php");
+        include("../mySQL.php");
     ?>
 <!DOCTYPE html>
 <html lang="en">
