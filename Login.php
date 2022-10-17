@@ -18,6 +18,7 @@
                 <p>Password</p>    
                 <input type="password" name="password" id="login-password">
             </label>
+            <input type="submit" value="Log In">
         </form>
     </section>    
 </body>
