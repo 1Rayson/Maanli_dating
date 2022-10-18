@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>Sign up!</h1>
-      <form action="sign-up.php" method="post">
+      <form class="sign-form" action="sign-up.php" method="post">
         <input type="text" name="firstName" placeholder="Firstname">
         <input type="text" name="lastName" placeholder="Lastname">
         <input type="text" name="age" placeholder="Age">
