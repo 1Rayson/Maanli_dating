@@ -12,12 +12,16 @@
     <title>Sign up</title>
 </head>
 <body>
-    <!-- Make it labels not placeholders and fix text in input fields + Password must be type password / age type number -->
+    <!-- fix text in input fields -->
     <h1>Sign up!</h1>
       <form class="sign-form" action="SignBackend.php" method="post">
+        <label for="firstName">Firstname</label>
         <input type="text" name="firstName" placeholder="Firstname">
+        <label for="lastName">Lastname</label>
         <input type="text" name="lastName" placeholder="Lastname">
+        <label for="age">Age</label>
         <input type="text" name="age" placeholder="Age">
+        <label for="gender">Gender</label>
         <select id="gender" name="gender">
                 <option value="none" selected>Gender</option>
                 <option value="male">Male</option>
@@ -26,9 +30,11 @@
                 <option value="other">Other</option>
             </select>
         <label for="height">Height in CM:</label>
-        <input type="text" name="height" place="Height">
+        <input type="number" name="height" place="Height">
+        <label for="userName">Username</label>
         <input type="text" name="userName" placeholder="Username">
-        <input type="text" name="password" placeholder="Password">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Sign Up">
     </form>
 </body>
