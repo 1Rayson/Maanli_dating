@@ -12,7 +12,7 @@
     <title>Sign up</title>
 </head>
 <body>
-    <!-- fix text in input fields -->
+    <!--  -->
     <h1>Sign up!</h1>
       <form class="sign-form" action="SignBackend.php" method="post">
         <label for="firstName">Firstname</label>
@@ -20,7 +20,7 @@
         <label for="lastName">Lastname</label>
         <input type="text" name="lastName" placeholder="Lastname">
         <label for="age">Age</label>
-        <input type="text" name="age" placeholder="Age">
+        <input type="number" name="age" placeholder="Age">
         <label for="gender">Gender</label>
         <select id="gender" name="gender">
                 <option value="none" selected>Gender</option>
