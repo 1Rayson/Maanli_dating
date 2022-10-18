@@ -1,6 +1,8 @@
 <?php
     session_start();
-    include("../mySQL.php");
+    include("classes/mySQL.php");
+    $database = new MySQL(true);
+
     $firstName = (isset($_REQUEST['firstName'])) ? $_REQUEST['firstName']: "";
     $lastName = (isset($_REQUEST['lastName'])) ? $_REQUEST['lastName']: "";
     $age = (isset($_REQUEST['age'])) ? $_REQUEST['age']: "";
@@ -12,9 +14,9 @@
     if($firstName !="" && $lastName !="" && $age !="" && $gender !="" && $height !="" && $userName !="" && $password !=""){
         $passEncrypt = password_hash($password, PASSWORD_DEFAULT);
         $userSQL = "CALL InsertMaanliUserData('$firstName', '$lastName','$age', '$gender', '$height', '$userName', '$passEncrypt');";    
-        $mySQL->query($userSQL);
-        header('Location: index.php?response=success');
+        $database->Query($userSQL);
+        echo "succes";
     } else{
-        header('Location: index.php?response=Failure');
+        echo "fail";
     }
 ?>
