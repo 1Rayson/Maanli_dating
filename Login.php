@@ -1,3 +1,11 @@
+<?php
+
+    $fail = false;
+    $response = isset($_GET['login']) ? $_GET['login'] : "";
+
+    if($response == "fail") $fail = true;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +16,19 @@
     <title>Login</title>
 </head>
 <body id="login-body">
+    
     <section id="login-section">
         <form action="login-back.php" method="post" id="login-form">
+            <?php 
+                if($fail)echo "<p id='log-in-fail-text'>Your password or username is wrong</p>";
+            ?>
             <label>
                 <p>Username</p>
-                <input type="text" name="userName" id="login-username">
+                <input type="text" name="userNameLogin" id="login-username">
             </label>
             <label>
                 <p>Password</p>    
-                <input type="password" name="password" id="login-password">
+                <input type="password" name="passwordLogin" id="login-password">
             </label>
             <input type="submit" value="Log In">
         </form>

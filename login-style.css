@@ -29,12 +29,16 @@ body {
     background-color: var(--green);
     border-radius: 15px;
 }
+#login-form #log-in-fail-text {
+    color: rgb(203, 9, 9);
+}
 #login-form label{
     margin: 15px;
     flex-direction: column;
 }
 #login-form input{
     font-size: 24px;
+    color: black;
 }
 #login-form input[type=submit]{
     padding: 10px;
