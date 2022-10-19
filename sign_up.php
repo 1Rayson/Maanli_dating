@@ -37,5 +37,7 @@
         <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Sign Up">
     </form>
+
+    <!-- add link til login -->
 </body>
 </html>
