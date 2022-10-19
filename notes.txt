@@ -62,3 +62,12 @@ Procedurer:
         - evt. et tag system, så brugerne kan matches på deres interesser.
 
         - 
+
+        The technical stuff
+        - criteria for matches
+            - Gender preferences in partner
+            - tags
+            - age difference
+
+        - age difference defined by userage - & + the values that the user chooses.
+        - gender preferences dropdown menu? results displayed have to match what the user has selected (options: female, male, non-binary, male and female, all of the above)
