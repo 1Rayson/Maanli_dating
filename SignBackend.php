@@ -1,6 +1,7 @@
 <?php
     session_start();
     include("classes/mySQL.php");
+    if(!isset($_SESSION['userToken'])) $_SESSION['userToken'] = 0;
     $database = new MySQL(true);
 
     $firstName = (isset($_REQUEST['firstName'])) ? $_REQUEST['firstName']: "";
@@ -15,8 +16,8 @@
         $passEncrypt = password_hash($password, PASSWORD_DEFAULT);
         $userSQL = "CALL InsertMaanliUserData('$firstName', '$lastName','$age', '$gender', '$height', '$userName', '$passEncrypt');";    
         $database->Query($userSQL);
-        echo "succes";
-    } else{
-        echo "fail";
+        header("location: profile.php");
+    } else {
+        header("location: sign_up.php?signup=fail");
     }
 ?>
