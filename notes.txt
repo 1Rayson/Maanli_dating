@@ -72,3 +72,7 @@ Procedurer:
         - age difference defined by userage - & + the values that the user chooses.
         - gender preferences dropdown menu? results displayed have to match what the user has selected (options: female, male, non-binary, male and female, all of the above)
         - tags: (Mulig måde at oprette systemet: når man på sin profil vælger en interesse, bliver ens bruger lagt ind i en tabel, hvor når matches skal displayes hiver man alle brugere ud fra tabellen)
+
+        Spørgsmål til Kasper:
+        - Database struktur. Giver det mening at lave en database til hver interesse-tag der indeholder bruger ID'erne som man så refererer til når man skal matche brugerne.
+        - Token: hvordan opretter vi et token til en profil, der lige er blevet oprettet?
