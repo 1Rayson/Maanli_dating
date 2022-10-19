@@ -35,6 +35,8 @@
             </label>
             <input type="submit" value="Log In">
         </form>
-    </section>    
+    </section>   
+    
+    <!-- Link til sign-up -->
 </body>
 </html>
