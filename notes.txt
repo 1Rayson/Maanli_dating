@@ -47,3 +47,18 @@ Procedurer:
     END //
 
     DELIMITER ;
+
+    Til profilsiden
+        - profil tekster
+        - billeder?
+        - tags (interesser)
+        - 
+
+    Til matchlisten
+        
+        Funktionaliteter:
+        - en funktion der begrænser visningen af profiler med 2 variabler en der definerer hvor mange år under brugeren og en til over.
+
+        - evt. et tag system, så brugerne kan matches på deres interesser.
+
+        - 

@@ -56,7 +56,7 @@ body {
     cursor: pointer;
 }
 /* sign up  */
-.sign-form{
+.sign-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,5 +71,9 @@ body {
     border: 0;
     border-radius: 10px;
     width: 120px;
+    color:black;
+}
+
+.sign-form select, .sign-form option{
     color:black;
 }
