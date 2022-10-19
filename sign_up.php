@@ -1,7 +1,4 @@
- <?php
-    session_start();
-    include("classes/mySQL.php");
-    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +9,6 @@
     <title>Sign up</title>
 </head>
 <body>
-    <!--  -->
     <h1>Sign up!</h1>
       <form class="sign-form" action="SignBackend.php" method="post">
         <label for="firstName">Firstname</label>
