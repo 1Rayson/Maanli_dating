@@ -37,7 +37,6 @@
         <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Sign Up">
     </form>
-
-    <!-- add link til login -->
+    <p><a href="Login.php">Already a member? Click here to log in</a></p>
 </body>
 </html>

@@ -36,7 +36,6 @@
             <input type="submit" value="Log In">
         </form>
     </section>   
-    
-    <!-- Link til sign-up -->
+    <p><a href="sign_up.php">New to this site? create a user!</a></p>
 </body>
 </html>
