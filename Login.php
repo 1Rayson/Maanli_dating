@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    
+    if(isset($_SESSION['userToken'])) header("location: index.php");
 
     $fail = false;
     $response = isset($_GET['login']) ? $_GET['login'] : "";
