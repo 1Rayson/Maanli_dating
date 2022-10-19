@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once ("/classes/MySQL.php");
 ?>
 <!DOCTYPE html>
@@ -12,12 +13,33 @@
 </head>
 <body>
     <h1>Profile</h1>
-    <section>
-        <h2 id="firstName"></h2>
-        <p id="lastName"></p>
-        <p id="age"></p>
-        <p id="gender"></p>
-        <p id="height"></p>
+    <section id="profile">
+        <h2><?php echo $rows['firstName'] ?></h2>
+        <p><?php echo $rows['lastName'] ?></p>
+        <p><?php echo $rows['age'] ?></p>
+        <p><?php echo $rows['gender'] ?></p>
+        <p><?php echo $rows['height'] ?></p>
+        <p><?php echo $rows['id'] ?></p>
+
+
+            <table>
+            <tr id="lg-1">
+            <td class="tl-1"> <div align="left" id="tb-name">Reg id:</div> </td>
+            <td class="tl-4"><?php echo $rows['mem_id']; ?></td>
+            </tr>
+            <tr id="lg-1">
+            <td class="tl-1"><div align="left" id="tb-name">Username:</div></td>
+            <td class="tl-4"><?php echo $rows['username']; ?></td>
+            </tr>
+            <tr id="lg-1">
+            <td class="tl-1"><div align="left" id="tb-name">Name:</div></td>
+            <td class="tl-4"><?php echo $rows['fname']; ?> <?php echo $rows['lname']; ?></td>
+            </tr>
+            <tr id="lg-1">
+            <td class="tl-1"><div align="left" id="tb-name">Email id:</div></td>
+            <td class="tl-4"><?php echo $rows['address']; ?></td>
+            </tr>
+        </table>
     </section>
     <section>
         <h2>Administrative actions</h2>
@@ -26,13 +48,14 @@
         <button id="delete-btn" type="button" onclick="callAPI()">Delete</button>
     </section>
     <script>
-        async function callAPI(endpoint, accessLevel) {
-            let response = await fetch("backend.php?action=" + endpoint + "&access=" + accessLevel);
+        async function callAPI(endpoint) {
+            let response = await fetch("backend.php?action=" + endpoint);
             let data = await response.text();
 
-            let outputDOM = document.querySelector("#output");
+            let outputDOM = document.querySelector("#profile");
             outputDOM.innerHTML = data;
         }
+
     </script>    
 </body>
 </html>
