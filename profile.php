@@ -1,6 +1,9 @@
 <?php
     session_start();
-    include_once ("/classes/MySQL.php");
+    include("profileBackend.php");
+
+    $profile = "SELECT firstName, lastName, age, gender, height FROM maanliUserProfile WHERE id=$user_id";
+    $result = $mySQL->Query($profile)->fetch_object();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,11 +17,11 @@
 <body>
     <h1>Profile</h1>
     <section id="profile">
-        <h2><?php echo $first_name ?></h2>
-        <p><?php echo $last_name ?></p>
-        <p><?php echo $age ?></p>
-        <p><?php echo $gender ?></p>
-        <p><?php echo $height ?></p>
+        <h2><?php echo $result->firstName; ?></h2>
+        <p><?php echo $result->lastName; ?></p>
+        <p>Age: <?php echo $result->age; ?> years old</p>
+        <p>Gender: <?php echo $result->gender; ?></p>
+        <p>Height: <?php echo $result->height; ?> cm</p>
     </section>
     <section>
         <h2>Administrative actions</h2>
