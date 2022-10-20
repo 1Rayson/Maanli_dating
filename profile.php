@@ -12,34 +12,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile_style.css">
     <title>Profile - Maanli Dating</title>
 </head>
 <body>
-    <h1>Profile</h1>
     <section id="profile">
-        <h2><?php echo $result->firstName; ?></h2>
-        <p><?php echo $result->lastName; ?></p>
+        <h1>Profile</h1>
+        <h2><?php echo $result->firstName; ?> <?php echo $result->lastName; ?></h2>
         <p>Age: <?php echo $result->age; ?> years old</p>
         <p>Gender: <?php echo $result->gender; ?></p>
         <p>Height: <?php echo $result->height; ?> cm</p>
-    </section>
-    <section>
+        <article>
+            <h2>My interests:</h2>
+            <p>Interest 1</p>
+            <p>Interest 2</p>
+            <p>Interest 3</p>
+        </article>
+        <article>
         <h2>Administrative actions</h2>
         <!-- ONCLICK FUNCTIONS ARE THE WRONG ONES-->
-        <button id="update-btn" type="button">Update</button>
-        <button id="delete-btn" type="button">Delete</button>
-    </section>
-    <script>
-
-        //onclick="callAPI()"
-        /*async function callAPI(endpoint) {
-            let response = await fetch("backend.php?action=" + endpoint);
-            let data = await response.text();
-
-            let outputDOM = document.querySelector("#profile");
-            outputDOM.innerHTML = data;
-        }*/
-
-    </script>    
+        <button id="update-btn" type="button" onclick="updateUser(user_id)">Update</button>
+        <button id="delete-btn" type="button"onclick="deleteUser(user_id)">Delete</button>
+    </article>
+    </section> 
 </body>
 </html>
