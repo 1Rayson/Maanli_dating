@@ -1,7 +1,8 @@
 <?php
     session_start();
-    include("profileBackend.php");
-
+    include_once("classes/MySQL.php");
+    $mySQL = new MySQL(true);
+    $user_id = $_SESSION['userToken'];
     $profile = "SELECT firstName, lastName, age, gender, height FROM maanliUserProfile WHERE id=$user_id";
     $result = $mySQL->Query($profile)->fetch_object();
 ?>
@@ -29,9 +30,9 @@
             <p>Interest 3</p>
         </article>
         <article>
-        <h2>Administrative actions</h2>
-        <button id="update-btn" type="button" formaction="classes/update.php">Update</button>
-        <button id="delete-btn" type="button" formaction="classes/delete.php">Delete</button>
+            <h2>Administrative actions</h2>
+            <a href="update.php"><button id="update-btn" type="button">Update</button></a>
+            <button id="delete-btn" type="button" formaction="classes/delete.php">Delete</button>
     </article>
     </section> 
 </body>

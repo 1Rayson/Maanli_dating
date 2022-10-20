@@ -24,6 +24,7 @@ body {
   display: flex;
   margin: auto;
   flex-direction: column;
+  justify-content: space-between;
   align-items: left;
   padding: 50px;
   border-radius: 15px;
@@ -33,6 +34,9 @@ body {
   padding-bottom: 20px;
 }
 
-#profile article {
-  padding-top: 50px;
+#profile button {
+  background-color: black;
+  border-radius: 15px;
+  padding: 1em;
+  cursor: pointer;
 }

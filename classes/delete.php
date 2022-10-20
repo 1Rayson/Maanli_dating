@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("classes/mySQL.php");
+include("mySQL.php");
 if(!isset($_SESSION['userToken'])) $_SESSION['userToken'] = 0;
 $database = new MySQL(true);
 

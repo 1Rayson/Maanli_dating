@@ -2,6 +2,8 @@
 include_once("classes/MySQL.php");
     $mySQL = new MySQL(true);
 
+    $user_id = $_SESSION['userToken'];
+
     //////// Profile ////////
 
     // If a session is ongoing, select every
