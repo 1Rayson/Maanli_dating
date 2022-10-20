@@ -76,3 +76,4 @@ Procedurer:
         Spørgsmål til Kasper:
         - Database struktur. Giver det mening at lave en database til hver interesse-tag der indeholder bruger ID'erne som man så refererer til når man skal matche brugerne.
         - Token: hvordan opretter vi et token til en profil, der lige er blevet oprettet?
+        - Profilsiden no work
