@@ -13,67 +13,54 @@
 
 body {
     background-color: black;
-}
-/* login */
-#login-section {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
 }
-
-#login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
+main {
+    display: grid;
     background-color: var(--green);
     border-radius: 15px;
+    justify-content: center;
+    justify-items: center;
 }
-
-#login-form label {
-    margin: 15px;
-    flex-direction: column;
-}
-
-#login-form input {
+form {
+    display: grid;
+    justify-items: center;
     font-size: 24px;
+    padding: 20%;
 }
-
-#login-form input[type=submit] {
-    padding: 10px;
-    background-color: #ccc;
+form label {
+    margin: 1%;
+}
+input {
+    padding: 5%;
+    background-color: rgb(250, 232, 232);
     border: 0;
     border-radius: 10px;
     width: 120px;
+    color: black;
 }
-
-#login-form input[type=submit]:hover {
+form select,
+form option {
+    padding: 10px;
+    background-color: rgb(250, 232, 232);
+    border: 0;
+    border-radius: 10px;
+    width: 120px;
+    color: black;
+}
+form input[type=submit]:hover {
     background-color: #aaa;
     cursor: pointer;
 }
-/* sign up  */
-.sign-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    background-color: var(--green);
-    border-radius: 15px;
+form #fail_text {
+    color: rgb(203, 9, 9);
 }
-
-.sign-form input {
-    padding: 10px;
-    background-color: #ccc;
-    border: 0;
-    border-radius: 10px;
-    width: 120px;
-    color:black;
+form input[type=submit] {
+margin-top: 20%;
 }
-
-.sign-form select, .sign-form option{
-    color:black;
+.link{
+    margin-bottom: 5%;
 }

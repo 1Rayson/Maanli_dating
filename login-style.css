@@ -12,7 +12,7 @@ body {
     background-color: black;
 }
 
-#login-section {
+section, main {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -21,7 +21,7 @@ body {
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
 }
-#login-form{
+form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,25 +29,25 @@ body {
     background-color: var(--green);
     border-radius: 15px;
 }
-#login-form #log-in-fail-text {
+form #log-in-fail-text {
     color: rgb(203, 9, 9);
 }
-#login-form label{
+form label{
     margin: 15px;
     flex-direction: column;
 }
-#login-form input{
+form input{
     font-size: 24px;
     color: black;
 }
-#login-form input[type=submit]{
+form input[type=submit]{
     padding: 10px;
     background-color: #ccc;
     border: 0;
     border-radius: 10px;
     width: 120px;
 }
-#login-form input[type=submit]:hover{
+form input[type=submit]:hover{
     background-color: #aaa;
     cursor: pointer;
 }

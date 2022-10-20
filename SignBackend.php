@@ -1,7 +1,7 @@
 <?php
     session_start();
     include("classes/mySQL.php");
-    if(!isset($_SESSION['userToken'])) $_SESSION['userToken'] = 0;
+    if(!isset($_SESSION['userToken'])) $_SESSION['userToken'] = NULL;
     $database = new MySQL(true);
 
     $firstName = (isset($_REQUEST['firstName'])) ? $_REQUEST['firstName']: "";

@@ -1,7 +1,10 @@
 <?php
-    session_start();
-        
+    session_start();  
     if(isset($_SESSION['userToken'])) header("location: index.php");
+    
+    $fail=false;  
+    if(isset($_REQUEST["signup"])) $fail=true;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +16,12 @@
     <title>Sign up</title>
 </head>
 <body>
+    <main>
     <h1>Sign up!</h1>
-      <form class="sign-form" action="SignBackend.php" method="post">
+      <form action="SignBackend.php" method="post">
+        <?php 
+            if($fail)echo "<p id='fail_text'>One or more fields have not been filled out</p>";
+        ?>
         <label for="firstName">Firstname</label>
         <input type="text" name="firstName" placeholder="Firstname">
         <label for="lastName">Lastname</label>
@@ -37,6 +44,7 @@
         <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Sign Up">
     </form>
-    <p><a href="Login.php">Already a member? Click here to log in</a></p>
+    <p class="link">Already a member?<a href="Login.php"> Click here to log in</a></p>
+    </main>
 </body>
 </html>
