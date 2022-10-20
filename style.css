@@ -28,10 +28,10 @@ main {
 form {
     display: grid;
     justify-items: center;
+    gap: 0 15%;
     grid-template-columns: 1fr 1fr;
-    align-content: space-between;
-    font-size: 1,4em;
-    padding: 30%;
+    font-size: 1.4em;
+    padding: 20px;
 }
 form label {
     margin: 1%;
@@ -39,19 +39,24 @@ form label {
 input {
     padding: 5%;
     background-color: rgb(250, 232, 232);
-    border: 0;
+    border: none;
     border-radius: 10px;
     width: 120px;
     color: black;
 }
 form select,
 form option {
-    padding: 10px;
+    padding:5%;
     background-color: rgb(250, 232, 232);
-    border: 0;
+    border: none;
     border-radius: 10px;
     width: 120px;
     color: black;
+}
+form input[type=submit] {
+    margin-top: 20%;
+    grid-row-start: 7;
+    grid-column-start: span 2 ;
 }
 form input[type=submit]:hover {
     background-color: #aaa;
@@ -59,9 +64,6 @@ form input[type=submit]:hover {
 }
 form #fail_text {
     color: rgb(203, 9, 9);
-}
-form input[type=submit] {
-margin-top: 20%;
 }
 .link {
     margin-bottom: 5%;
