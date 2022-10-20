@@ -14,47 +14,28 @@
 <body>
     <h1>Profile</h1>
     <section id="profile">
-        <h2><?php echo $rows['firstName'] ?></h2>
-        <p><?php echo $rows['lastName'] ?></p>
-        <p><?php echo $rows['age'] ?></p>
-        <p><?php echo $rows['gender'] ?></p>
-        <p><?php echo $rows['height'] ?></p>
-        <p><?php echo $rows['id'] ?></p>
-
-
-            <table>
-            <tr id="lg-1">
-            <td class="tl-1"> <div align="left" id="tb-name">Reg id:</div> </td>
-            <td class="tl-4"><?php echo $rows['mem_id']; ?></td>
-            </tr>
-            <tr id="lg-1">
-            <td class="tl-1"><div align="left" id="tb-name">Username:</div></td>
-            <td class="tl-4"><?php echo $rows['username']; ?></td>
-            </tr>
-            <tr id="lg-1">
-            <td class="tl-1"><div align="left" id="tb-name">Name:</div></td>
-            <td class="tl-4"><?php echo $rows['fname']; ?> <?php echo $rows['lname']; ?></td>
-            </tr>
-            <tr id="lg-1">
-            <td class="tl-1"><div align="left" id="tb-name">Email id:</div></td>
-            <td class="tl-4"><?php echo $rows['address']; ?></td>
-            </tr>
-        </table>
+        <h2><?php echo $first_name ?></h2>
+        <p><?php echo $last_name ?></p>
+        <p><?php echo $age ?></p>
+        <p><?php echo $gender ?></p>
+        <p><?php echo $height ?></p>
     </section>
     <section>
         <h2>Administrative actions</h2>
         <!-- ONCLICK FUNCTIONS ARE THE WRONG ONES-->
-        <button id="update-btn" type="button" onclick="callAPI()">Update</button>
-        <button id="delete-btn" type="button" onclick="callAPI()">Delete</button>
+        <button id="update-btn" type="button">Update</button>
+        <button id="delete-btn" type="button">Delete</button>
     </section>
     <script>
-        async function callAPI(endpoint) {
+
+        //onclick="callAPI()"
+        /*async function callAPI(endpoint) {
             let response = await fetch("backend.php?action=" + endpoint);
             let data = await response.text();
 
             let outputDOM = document.querySelector("#profile");
             outputDOM.innerHTML = data;
-        }
+        }*/
 
     </script>    
 </body>

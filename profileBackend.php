@@ -6,7 +6,7 @@ include_once("classes/MySQL.php");
     $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
     $accessLevel = isset($_REQUEST['access']) ? $_REQUEST['access'] : 0;
 
-    if($action == "userlist") {
+    /*if($action == "userlist") {
         // Check if the user has ADMIN access (1 = user, 5 = admin)
         if($accessLevel == 5) {
             $sql = "SELECT display_name, profile_text, profile_active, access_level, creation_time FROM userprofile ORDER BY id ASC";
@@ -30,14 +30,27 @@ include_once("classes/MySQL.php");
         echo $mySQL->Query($sql, true);
     }
 
-    if($action == "profileInfo") {
+    /*if($action == "profileInfo") {
         if (isset($_SESSION['login_user'])) {
 
         $sql = "SELECT firstName, lastName, age, gender, height FROM maanliUserProfile WHERE id=$loggedin_id"
         }
+    }*/
+
+
+
+    if (isset($_SESSION['login_user'])) {
+        $user_id = $_SESSION['login_user'];
+        $first_name = "SELECT firstName FROM maanliUserProfile WHERE id=$user_id";
+        $last_name = "SELECT lastName FROM maanliUserProfile WHERE id=$user_id";
+        $age = "SELECT age FROM maanliUserProfile WHERE id=$user_id";
+        $gender = "SELECT gender FROM maanliUserProfile WHERE id=$user_id";
+        $height = "SELECT height FROM maanliUserProfile WHERE id=$user_id";
     }
 
-    session_start();
+
+
+    /*session_start();
     $user_check = $_SESSION['login_user'];
     $con = mysqli_connect($mysql_hostname, $mysql_user, $mysql_password, $mysql_database);
     $user_sql = mysqli_query($con,"SELECT username, id from maanliUserProfile where id='$user_check'");
@@ -61,6 +74,6 @@ include_once("classes/MySQL.php");
         echo $mySQL->Query($sql, true);
     }
 
-    $sql = "SELECT * from maanliUserProfile where id='$loggedin_id'";
+    $sql = "SELECT * from maanliUserProfile where id='$loggedin_id'";*/
 
 ?>
