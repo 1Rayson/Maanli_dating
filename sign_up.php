@@ -22,28 +22,41 @@
         <?php 
             if($fail)echo "<p id='fail_text'>One or more fields have not been filled out</p>";
         ?>
-        <label for="firstName">Firstname</label>
-        <input type="text" name="firstName" placeholder="Firstname">
-        <label for="lastName">Lastname</label>
-        <input type="text" name="lastName" placeholder="Lastname">
-        <label for="age">Age</label>
-        <input type="number" name="age" placeholder="Age">
-        <label for="gender">Gender</label>
-        <select id="gender" name="gender">
+        <label for="firstName">
+            Firstname
+            <input type="text" name="firstName" placeholder="Firstname">
+        </label>
+        <label for="lastName">Lastname
+            <input type="text" name="lastName" placeholder="Lastname">
+        </label>
+        <label for="age">
+            Age
+            <input type="number" name="age" placeholder="Age">
+        </label>
+        <label for="gender">
+            Gender
+            <select id="gender" name="gender">
                 <option value="none" selected>Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="nonbinary">Nonbinary</option>
                 <option value="other">Other</option>
             </select>
-        <label for="height">Height in CM:</label>
-        <input type="number" name="height" place="Height">
-        <label for="userName">Username</label>
-        <input type="text" name="userName" placeholder="Username">
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit" value="Sign Up">
+        </label>
+        <label for="height">
+            Height in CM:
+            <input type="number" name="height" place="Height">
+        </label>
+        <label for="userName">
+            Username
+            <input type="text" name="userName" placeholder="Username">
+        </label>
+        <label for="password">
+            Password 
+            <input type="password" name="password" placeholder="Password">
+        </label>
     </form>
+    <input type="submit" value="Sign Up">
     <p class="link">Already a member?<a href="Login.php"> Click here to log in</a></p>
     </main>
 </body>

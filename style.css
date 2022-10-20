@@ -10,7 +10,7 @@
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
 }
-
+/* Global stylings */
 body {
     background-color: black;
     display: flex;
@@ -28,8 +28,10 @@ main {
 form {
     display: grid;
     justify-items: center;
-    font-size: 24px;
-    padding: 20%;
+    grid-template-columns: 1fr 1fr;
+    align-content: space-between;
+    font-size: 1,4em;
+    padding: 30%;
 }
 form label {
     margin: 1%;
@@ -61,6 +63,9 @@ form #fail_text {
 form input[type=submit] {
 margin-top: 20%;
 }
-.link{
+.link {
     margin-bottom: 5%;
 }
+
+/* Page specific stylings */
+
