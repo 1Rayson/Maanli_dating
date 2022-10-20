@@ -21,7 +21,7 @@
     <section id="update">
         <h1>Update profile</h1>
 
-        <form action="update.php" method="post">
+        <form action="profileBackend.php" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" value="<?=$login_result->username; ?>">
             <label for="userPassword">Password:</label>
@@ -42,7 +42,7 @@
             </select>
             <label for="height">Height in CM:</label>
             <input type="number" id="height" name="height" value="<?=$profile_result->height; ?>">
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" onclick="updateUser($user_id)">
 
             <!--<input type="password" value="Password" onclick="callAPI('userlist', '1')"> -->
          </form>

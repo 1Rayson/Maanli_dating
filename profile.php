@@ -30,9 +30,8 @@
         </article>
         <article>
         <h2>Administrative actions</h2>
-        <!-- ONCLICK FUNCTIONS ARE THE WRONG ONES-->
-        <button id="update-btn" type="button" onclick="updateUser(user_id)">Update</button>
-        <button id="delete-btn" type="button"onclick="deleteUser(user_id)">Delete</button>
+        <button id="update-btn" type="button" formaction="classes/update.php">Update</button>
+        <button id="delete-btn" type="button" formaction="classes/delete.php">Delete</button>
     </article>
     </section> 
 </body>
