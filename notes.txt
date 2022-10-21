@@ -16,9 +16,24 @@ maanliUserLogin
 - Denne indeholder
     id - INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username - VARCHAR(50),
-    userPassword - VARCHAR(60),
-    userID - INT NOT NULL
-Hvor userID refererer til brugerens ID fra maanliUserProfile
+    userPassword - VARCHAR(60)
+
+For at få en brugers præferencer
+maanliUserPreference
+- Denne indeholder
+    CREATE TABLE maanliUserPreference (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    minAge INT,
+    maxAge INT,
+    prefer_gender VARCHAR(20)
+
+For at få brugerens interesser
+maanliUserInterests
+- Denne indeholder
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    interestName VARCHAR(50),
+    userID INT
+
 
 Procedurer:
     - InsertMaanliUserData
@@ -29,24 +44,51 @@ Procedurer:
         IN ageVar INT,
         IN genderVar VARCHAR(20),
         IN heightVar INT,
+        IN minAgeVar INT,
+        IN maxAgeVar INT,
+        IN prefer_genderVar VARCHAR(20),
         IN usernameVar VARCHAR(50),
-        IN userPasswordVar VARCHAR(60),
-        IN userIDVar INT
-    )
-    BEGIN
-        DECLARE EXIT HANDLER FOR SQLEXCEPTION, SQLWARNING
+        IN userPasswordVar VARCHAR(60)
+        )
         BEGIN
-            -- Do this if at least one query fails!
-            ROLLBACK;
-            SELECT 'A rollback has occured due to an error!' ErrorMessage;
-        END;
-        START TRANSACTION;
-            INSERT INTO maanliUserProfile (firstName, lastName, age, gender, height) VALUES (firstNameVar, lastNameVar, ageVar, genderVar, heightVar);
-            INSERT INTO maanliUserLogin (username, userPassword, userID) VALUES (usernameVar, userPasswordVar, userIDVar);
-        COMMIT;
-    END //
+            DECLARE EXIT HANDLER FOR SQLEXCEPTION, SQLWARNING
+            BEGIN
 
-    DELIMITER ;
+                ROLLBACK;
+                SELECT 'A rollback has occured due to an error!' ErrorMessage;
+            END;
+            START TRANSACTION;
+                INSERT INTO maanliUserProfile (firstName, lastName, age, gender, height) VALUES (firstNameVar, lastNameVar, ageVar, genderVar, heightVar);
+                INSERT INTO maanliUserLogin (username, userPassword) VALUES (usernameVar, userPasswordVar);
+                INSERT INTO maanliUserPreference (minAge, maxAge, prefer_gender) VALUES (minAgeVar, maxAgeVar, prefer_genderVar);
+            COMMIT;
+        END //
+
+
+    - UpdateMaanlyUserData
+
+        CREATE PROCEDURE UpdateMaanliUserData (
+        IN userIDVar INT,
+        IN firstNameVar VARCHAR(50),
+        IN lastNameVar VARCHAR(50),
+        IN ageVar INT,
+        IN genderVar VARCHAR(20),
+        IN heightVar INT,
+        IN usernameVar VARCHAR(50),
+        IN userPasswordVar VARCHAR(60)
+        )
+        BEGIN
+            DECLARE EXIT HANDLER FOR SQLEXCEPTION, SQLWARNING
+            BEGIN
+                -- Do this if at least one query fails!
+                ROLLBACK;
+                SELECT 'A rollback has occured due to an error!' ErrorMessage;
+            END;
+            START TRANSACTION;
+                UPDATE maanliUserProfile SET firstName=firstNameVar, lastName=lastNameVar, age=ageVar, gender=genderVar, height=heightVar WHERE id=userIDVar;
+                UPDATE maanliUserLogin SET username=usernameVar, userPassword=userPasswordVar WHERE id=userIDVar;
+            COMMIT;
+        END //
 
     Til profilsiden
         - profil tekster
