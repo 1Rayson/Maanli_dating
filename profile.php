@@ -1,5 +1,7 @@
 <?php
     session_start();
+    if(!isset($_SESSION['userToken'])) header("location: Login.php");
+    
     include_once("classes/MySQL.php");
     $mySQL = new MySQL(true);
     $user_id = $_SESSION['userToken'];

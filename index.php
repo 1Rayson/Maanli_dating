@@ -5,14 +5,22 @@
     include("classes/mySQL.php");
     $database = new MySQL(true);
     $userToken = $_SESSION['userToken'];
-    $preferenceQuery = "SELECT * FROM maanliUserPreference WHERE id = $userToken";
+    $preferenceQuery = "
+        SELECT maanliUserPreference.prefer_gender, maanliUserPreference.minAge, maanliUserPreference.maxAge, maanliUserProfile.age
+        FROM maanliUserPreference 
+        LEFT JOIN maanliUserProfile 
+        ON maanliUserPreference.id = maanliUserProfile.id
+        WHERE maanliUserPreference.id = $userToken
+    ";
     $userPreferences = $database->Query($preferenceQuery)->fetch_object();
 
     $matchQuery = "
-        SELECT firstName, lastName, age, gender 
+        SELECT id, firstName, lastName, age, gender 
         FROM maanliUserProfile
         WHERE id != $userToken 
         AND gender = '$userPreferences->prefer_gender'
+        AND age > $userPreferences->age - $userPreferences->minAge
+        AND age < $userPreferences->age + $userPreferences->maxAge
     ";
 
     $matchFetch = $database->Query($matchQuery);
@@ -20,12 +28,29 @@
     $matchList = [];
     while($row = $matchFetch->fetch_object()) {
         $match = [];
+        $match['id'] = $row->id;
         $match['firstName'] = $row->firstName;
         $match['lastName'] = $row->lastName;
         $match['age'] = $row->age;
         $match['gender'] = $row->gender;
 
         $matchList[] = $match;
+    }
+
+    for($i=0; $i<sizeof($matchList); $i++){
+        $matchInterestQuery = "
+            SELECT interestName, userID
+            FROM maanliUserInterests
+            WHERE ".$matchList[$i]['id']." = userID
+        ";
+        $matchInterestFetch = $database->Query($matchInterestQuery);
+
+        $matchInterestList = [];
+        while($row = $matchInterestFetch->fetch_object()) {
+            $matchInterestList[] = $row->interestName;
+        }
+
+        $matchList[$i]['matchInterestList'] = $matchInterestList;
     }
 
     /* 
@@ -65,11 +90,18 @@
         <h2 id="match_name"><?php echo $matchList[$matchArrayId]['firstName']." ".$matchList[$matchArrayId]['lastName'] ?></h2>
         <p id="match_gender"><?php echo $matchList[$matchArrayId]['gender'] ?></p>
         <p id="match_age"><?php echo $matchList[$matchArrayId]['age'] ?></p>
-        <!-- <div id="match_interest">
-            <div class="match_interst-item"><?php /* echo $matchList[$matchArrayId]->interest1 */ ?></div>
-            <div class="match_interst-item"><?php /* echo $matchList[$matchArrayId]->interest2 */ ?></div>
-            <div class="match_interst-item"><?php /* echo $matchList[$matchArrayId]->interest3 */ ?></div>
-        </div> -->
+        <div id="match_interest">
+            
+            <div class="match_interst-item"><?php echo $matchList[$matchArrayId]->interest2 ?></div>
+            <div class="match_interst-item"><?php echo $matchList[$matchArrayId]->interest3 ?></div>
+            <?php
+                $matchInterest = $matchList[$matchArrayId]['matchInterestList'];
+                
+                for($i=0; $i<sizeof($matchInterest); $i++){
+                        echo "<div class='match_interst-item'>".$matchInterest[$i]."</div>";
+                    }
+            ?>
+        </div>
         <a id="match_next-button" href="index-backend.php?nextMatch=true">Next match</a>
     </section>
 </body>
