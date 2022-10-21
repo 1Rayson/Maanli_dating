@@ -4,6 +4,7 @@
     if(!isset($_SESSION['userToken'])) $_SESSION['userToken'] = NULL;
     $database = new MySQL(true);
 
+
     $firstName = (isset($_REQUEST['firstName'])) ? $_REQUEST['firstName']: "";
     $lastName = (isset($_REQUEST['lastName'])) ? $_REQUEST['lastName']: "";
     $age = (isset($_REQUEST['age'])) ? $_REQUEST['age']: "";
@@ -14,16 +15,37 @@
     $pGender = (isset($_REQUEST['prefer_gender'])) ? $_REQUEST['prefer_gender']: "";
     $userName = (isset($_REQUEST['userName'])) ? $_REQUEST['userName']: "";
     $password = (isset($_REQUEST['password'])) ? $_REQUEST['password']: "";
+    $interests =[];
     
-    /* $inter1 = (isset($_REQUEST['interest1'])) ? $_REQUEST['interest1']: "";
-    $inter2 = (isset($_REQUEST['interest2'])) ? $_REQUEST['interest2']: "";
-    $inter3 = (isset($_REQUEST['interest3'])) ? $_REQUEST['interest3']: ""; */
-    
+    if($_REQUEST['interest1'] != "none")$interests[] = $_REQUEST['interest1'];
+    if($_REQUEST['interest2'] != "none") $interests[] = $_REQUEST['interest2'];
+    if($_REQUEST['interest3'] != "none") $interests[] = $_REQUEST['interest3'];
+
     if($firstName !="" && $lastName !="" && $age !="" && $gender !="" && $height !="" && $younger !="" && $older !="" && $pGender !="" && $userName !="" && $password !="" ){
+
         $passEncrypt = password_hash($password, PASSWORD_DEFAULT);
         $userSQL = "CALL InsertMaanliUserData('$firstName', '$lastName','$age', '$gender', '$height', '$younger', '$older', '$pGender', '$userName', '$passEncrypt' );";    
         $database->Query($userSQL);
-        header("location: profile.php");
+
+        $loginQuery = "
+            SELECT id
+            FROM maanliUserLogin
+            WHERE username = '$userName'
+        ";
+        $result = $database->Query($loginQuery)->fetch_object();
+
+        for($i=0; $i < sizeof($interests); $i++){
+            $interest = $interests[$i];
+            $interestQuery = "
+                INSERT INTO maanliUserInterests
+                    (interestName, userID)
+                VALUES
+                    ('$interest', '$result->id')
+            ";
+            echo $database->Query($interestQuery);
+        }
+
+        header("location: login.php");
     } else {
         header("location: sign_up.php?signup=fail");
     }
