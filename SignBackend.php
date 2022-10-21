@@ -42,9 +42,8 @@
                 VALUES
                     ('$interest', '$result->id')
             ";
-            echo $database->Query($interestQuery);
         }
-
+        
         header("location: login.php");
     } else {
         header("location: sign_up.php?signup=fail");
