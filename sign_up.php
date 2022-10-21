@@ -69,10 +69,31 @@
     <label for="prefer_gender">
             Prefered gender
         <select id="prefer_gender" name="gender">
-            <option value="none" selected>Gender</option>
+            <option value="any" selected>Any</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
+    <label for="interests">
+        Hobbies / interests
+        <select name="interest1" id="interest1">
+            <option value="gamer">gamer</option>
+            <option value="fitness">fitness</option>
+            <option value="outdoors">outdoors</option>
+            <option value="rejse">rejse</option>
+        </select>
+        <select name="interest2" id="interest2">
+            <option value="gamer">gamer</option>
+            <option value="fitness">fitness</option>
+            <option value="outdoors">outdoors</option>
+            <option value="rejse">rejse</option>
+        </select>
+        <select name="interest3" id="interest3">
+            <option value="gamer">gamer</option>
+            <option value="fitness">fitness</option>
+            <option value="outdoors">outdoors</option>
+            <option value="rejse">rejse</option>
+        </select>
+    </label>
     <input type="submit" value="Sign Up">
     </form>
     
