@@ -21,7 +21,7 @@
     
     if($firstName !="" && $lastName !="" && $age !="" && $gender !="" && $height !="" && $younger !="" && $older !="" && $pGender !="" && $userName !="" && $password !="" ){
         $passEncrypt = password_hash($password, PASSWORD_DEFAULT);
-        $userSQL = "CALL InsertMaanliUserData('$firstName', '$lastName','$age', '$gender', '$height', '$userName', '$passEncrypt', '$younger', '$older', '$pGender', '$inter1', '$inter2', '$inter3' );";    
+        $userSQL = "CALL InsertMaanliUserData('$firstName', '$lastName','$age', '$gender', '$height', '$younger', '$older', '$pGender', '$userName', '$passEncrypt' );";    
         $database->Query($userSQL);
         header("location: profile.php");
     } else {
