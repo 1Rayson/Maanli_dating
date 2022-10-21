@@ -17,6 +17,7 @@
     $inter1 = (isset($_REQUEST['interest1'])) ? $_REQUEST['interest1']: "";
     $inter2 = (isset($_REQUEST['interest2'])) ? $_REQUEST['interest2']: "";
     $inter3 = (isset($_REQUEST['interest3'])) ? $_REQUEST['interest3']: "";
+    
     if($firstName !="" && $lastName !="" && $age !="" && $gender !="" && $height !="" && $userName !="" && $password !="" && $younger !="" && $older !="" && $pGender !="" && $inter1 !="" && $inter2 !="" && $inter3 !=""){
         $passEncrypt = password_hash($password, PASSWORD_DEFAULT);
         $userSQL = "CALL InsertMaanliUserData('$firstName', '$lastName','$age', '$gender', '$height', '$userName', '$passEncrypt', '$younger', '$older', '$pGender', '$inter1', '$inter2', '$inter3' );";    
