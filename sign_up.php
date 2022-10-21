@@ -66,6 +66,13 @@
         <input type="range" min="0" max="100" value="0" id="older">
         <p> Max years older: <span id="vOlder"></span></p>
     </label>
+    <label for="prefer_gender">
+            Prefered gender
+        <select id="prefer_gender" name="gender">
+            <option value="none" selected>Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
     <input type="submit" value="Sign Up">
     </form>
     
