@@ -3,7 +3,7 @@
 
     
     if($_GET['nextMatch']){
-        $_SESSION['match']++;
+        $_SESSION['matchArrayId']++;
         header("location: index.php");
     }
 
