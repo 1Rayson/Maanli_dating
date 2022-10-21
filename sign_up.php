@@ -58,17 +58,17 @@
     </label>
     <label for="younger">
         Younger 
-        <input type="range" min="0" max="100" value="0" id="younger">
+        <input type="range" min="0" max="100" value="0" name="younger" id="younger">
         <p>max years younger: <span id="vYounger"></span></p>
     </label>
     <label for="older">
         Older
-        <input type="range" min="0" max="100" value="0" id="older">
+        <input type="range" min="0" max="100" value="0" name="older" id="older">
         <p> Max years older: <span id="vOlder"></span></p>
     </label>
     <label for="prefer_gender">
             Prefered gender
-        <select id="prefer_gender" name="gender">
+        <select id="prefer_gender" name="prefer_gender">
             <option value="any" selected>Any</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -80,19 +80,19 @@
             <option value="gamer">gamer</option>
             <option value="fitness">fitness</option>
             <option value="outdoors">outdoors</option>
-            <option value="rejse">rejse</option>
+            <option value="travel">travel</option>
         </select>
         <select name="interest2" id="interest2">
             <option value="gamer">gamer</option>
             <option value="fitness">fitness</option>
             <option value="outdoors">outdoors</option>
-            <option value="rejse">rejse</option>
+            <option value="travel">travel</option>
         </select>
         <select name="interest3" id="interest3">
             <option value="gamer">gamer</option>
             <option value="fitness">fitness</option>
             <option value="outdoors">outdoors</option>
-            <option value="rejse">rejse</option>
+            <option value="travel">travel</option>
         </select>
     <input type="submit" value="Sign Up">
     </form>
