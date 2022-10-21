@@ -19,7 +19,7 @@
     <section id="profile">
         <div id="top-bar">
             <h1>Profile</h1>
-            <a><button id="logout-btn" type="button">Log Out</button></a>
+            <button href="backend.php" id="logout-btn" type="button">Log Out</button>
         </div>
 
         <h2><?php echo $result->firstName; ?> <?php echo $result->lastName; ?></h2>
