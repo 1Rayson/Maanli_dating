@@ -22,7 +22,7 @@
     <section id="update">
         <h1>Update profile</h1>
 
-        <form action="classes/updateBackend.php" method="post">
+        <form action="updateBackend.php" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" value="<?php echo $login_result->username; ?>">
             <label for="userPassword">Password:</label>
