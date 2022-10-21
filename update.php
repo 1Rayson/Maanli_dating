@@ -1,7 +1,8 @@
 <?php
     session_start();
-   include("classes/updateBackend.php");
-
+    include("classes/mySQL.php");
+    $mySQL = new MySQL(true);
+    $user_id = $_SESSION['userToken'];
     $profile = "SELECT firstName, lastName, age, gender, height FROM maanliUserProfile WHERE id=$user_id";
     $login = "SELECT username, userPassword FROM maanliUserLogin WHERE id=$user_id";
     $profile_result = $mySQL->Query($profile)->fetch_object();
@@ -21,7 +22,7 @@
     <section id="update">
         <h1>Update profile</h1>
 
-        <form method="post" action="classes/updateBackend.php">
+        <form action="classes/updateBackend.php" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" value="<?php echo $login_result->username; ?>">
             <label for="userPassword">Password:</label>

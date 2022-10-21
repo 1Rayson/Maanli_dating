@@ -18,24 +18,23 @@
     <link rel="stylesheet" href="login-style.css">
     <title>Login</title>
 </head>
-<body id="login-body">
-    
-    <section id="login-section">
-        <form action="login-back.php" method="post" id="login-form">
-            <?php 
-                if($fail)echo "<p id='log-in-fail-text'>Your password or username is wrong</p>";
-            ?>
-            <label>
-                <p>Username</p>
-                <input type="text" name="userNameLogin" id="login-username">
-            </label>
-            <label>
-                <p>Password</p>    
-                <input type="password" name="passwordLogin" id="login-password">
-            </label>
-            <input type="submit" value="Log In">
-        </form>
-    </section>   
-    <p>New to this site?<a href="sign_up.php">New to this site? Create a user!</a></p>
-</body>
+    <body id="login-body">
+        <section id="login-section">
+            <form action="login-back.php" method="post" id="login-form">
+                <?php 
+                    if($fail)echo "<p id='log-in-fail-text'>Your password or username is wrong</p>";
+                ?>
+                <label>
+                    <p>Username</p>
+                    <input type="text" name="userNameLogin" id="login-username">
+                </label>
+                <label>
+                    <p>Password</p>    
+                    <input type="password" name="passwordLogin" id="login-password">
+                </label>
+                <input type="submit" value="Log In">
+            </form>
+        </section>   
+        <p>New to this site?<a href="sign_up.php">New to this site? Create a user!</a></p>
+    </body>
 </html>
