@@ -34,7 +34,7 @@
                 </label>
                 <input type="submit" value="Log In">
             </form>
-        </section>   
         <p>New to this site?<a href="sign_up.php">New to this site? Create a user!</a></p>
+        </section>
     </body>
 </html>
