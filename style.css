@@ -8,11 +8,12 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: #fff;
+  color: black;
+  letter-spacing: 0.1em;
 }
 /* Global stylings */
 body {
-  background-color: black;
+  background-color: var(--green);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +21,7 @@ body {
 }
 main {
   display: grid;
-  background-color: var(--green);
+  background-color: white;
   border-radius: 15px;
   justify-content: center;
   justify-items: center;
@@ -69,12 +70,20 @@ form #fail_text {
   margin-bottom: 5%;
 }
 
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
 /* Page specific stylings */
 
 /* Profile */
 
 #profile {
-  background-color: var(--green);
+  background-color: white;
   height: 70vh;
   width: 50vh;
   display: flex;
@@ -112,21 +121,38 @@ form #fail_text {
 /* Update */
 
 /* Match */
+
+#profile-btn-article {
+  position: absolute;
+  left: 13%;
+  top: 16%;
+}
+
+#profile-button {
+  text-align: center;
+  text-decoration: none;
+  background-color: black;
+  padding: 1em 2em;
+  border-radius: 5px;
+  color: white;
+}
+
 #match-wrapper {
   display: flex;
   height: 80vh;
   width: 60vw;
+  box-shadow: 17px 17px 50px 0px #4f9b21;
 }
 
 #match-info {
   height: 100%;
   width: 40%;
-  background-color: green;
+  background-color: white;
 }
 
-#match-info > * {
-  margin-top: 5%;
-}
+/*#match-info > * {
+  margin-top: 8%;
+}*/
 
 #match-info article {
   padding-left: 20%;
@@ -136,8 +162,16 @@ form #fail_text {
   padding-top: 10%;
 }
 
-#match-name {
+#match-name_div {
   margin-bottom: 5vh;
+  display: flex;
+  flex-direction: row;
+}
+
+#match_details {
+  display: flex;
+  margin-top: 2%;
+  gap: 5%;
 }
 
 #match-image {
@@ -149,19 +183,39 @@ form #fail_text {
 .description-tag {
   padding-left: 15%;
   color: var(--green);
+  margin-top: 10%;
+  margin-bottom: 3%;
+  letter-spacing: 0.15em;
 }
 
-.description-tag:nth-child(4) {
-  margin-top: 20%;
+.description-tag:first-child {
+  padding-top: 10%;
 }
 
 #match-interest {
   display: flex;
-  gap: 2em;
+  gap: 2%;
 }
 
 #match-nav {
   height: 100%;
   width: 10%;
-  background-color: red;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#match_next-button {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: var(--green);
+  padding: 20% 30%;
+  border-radius: 5px;
+}
+
+#match-image img {
+  width: 100%;
+  height: 100%;
 }

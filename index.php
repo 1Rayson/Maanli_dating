@@ -15,7 +15,7 @@
     $userPreferences = $database->Query($preferenceQuery)->fetch_object();
 
     $matchQuery = "
-        SELECT id, firstName, lastName, age, gender 
+        SELECT id, firstName, lastName, age, gender, height 
         FROM maanliUserProfile
         WHERE id != $userToken 
         AND gender = '$userPreferences->prefer_gender'
@@ -33,6 +33,7 @@
         $match['lastName'] = $row->lastName;
         $match['age'] = $row->age;
         $match['gender'] = $row->gender;
+        $match['height'] = $row->height;
 
         $matchList[] = $match;
     }
@@ -81,15 +82,24 @@
     <title>Matchlist</title>
 </head>
 <body>
+    <article id="profile-btn-article">
+        <a id="profile-button" href="profile.php">My profile</a>
+    </article>
     <wrapper id="match-wrapper">
         <section id="match-info">
-            <article>
-                <a id="profile-button" href="profile.php">Go to profile</a>
-            </article>
             <p class="description-tag">About</p>
             <article>
-                <h2 id="match_name"><?php echo $matchList[$matchArrayId]['firstName']." ".$matchList[$matchArrayId]['lastName'] ?></h2>
-                <p id="match_age_gender"><?php echo $matchList[$matchArrayId]['age'] ?> / <?php echo $matchList[$matchArrayId]['gender'] ?></p>
+                <div id="match_name_div">
+                    <h2 id="match_name"><?php echo $matchList[$matchArrayId]['firstName'] ?></h2>
+                    <h3 id="match_last_name"><?php echo $matchList[$matchArrayId]['lastName'] ?></h3>
+                </div>    
+                <div id="match_details">
+                    <p id="match_age"><?php echo $matchList[$matchArrayId]['age'] ?></p>
+                    <p class="match_divider">|</p>
+                    <p id="match_gender"><?php echo $matchList[$matchArrayId]['gender'] ?></p>
+                    <p class="match_divider">|</p>
+                    <p id="match_height"><?php echo $matchList[$matchArrayId]['height'] ?> cm</p>
+                </div>
             </article>
             
             <p class="description-tag">Interests</p>
@@ -107,11 +117,14 @@
             </article>
         </section>
         <section id="match-image">
-            <!-- picture of match
-                <img id="match_picture" src="" alt=""> -->
+                <img id="match_picture" src="/img/placeholder.jpg" alt="match image">
         </section>
         <section id="match-nav">
+<<<<<<< Updated upstream
             <a id="match_next-button" href="backend.php?nextMatch=true">Next match</a>
+=======
+            <a id="match_next-button" href="index-backend.php?nextMatch=true">></a>
+>>>>>>> Stashed changes
         </section>
     </wrapper>
 </body>
