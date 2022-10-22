@@ -111,7 +111,7 @@
                 <img id="match_picture" src="" alt=""> -->
         </section>
         <section id="match-nav">
-            <a id="match_next-button" href="index-backend.php?nextMatch=true">Next match</a>
+            <a id="match_next-button" href="backend.php?nextMatch=true">Next match</a>
         </section>
     </wrapper>
 </body>

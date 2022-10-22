@@ -121,5 +121,9 @@ if($action == 'update') {
 // 
 // Index backend
 // 
+    if($_GET['nextMatch']){
+        $_SESSION['matchArrayId']++;
+        header("location: index.php");
+    }
 
 ?>
