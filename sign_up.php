@@ -18,7 +18,7 @@
 <body>
     <main>
         <h1>Sign up!</h1>
-        <form action="SignBackend.php" method="post">
+        <form action="backend.php?action=signup" method="post">
             <?php 
                 if($fail)echo "<p id='fail_text'>One or more fields have not been filled out</p>";
             ?>

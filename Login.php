@@ -20,7 +20,7 @@
 </head>
     <body id="login-body">
         <section id="login-section">
-            <form action="login-back.php" method="post" id="login-form">
+            <form action="backend.php?action=login" method="post" id="login-form">
                 <?php 
                     if($fail)echo "<p id='log-in-fail-text'>Your password or username is wrong</p>";
                 ?>

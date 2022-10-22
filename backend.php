@@ -1,8 +1,11 @@
 <?php
 session_start();
 include("classes/mySQL.php");
+// 
+// Variables
+// 
 $database = new MySQL(true);
-
+$action = $_GET['action'] ;
 
 // 
 // Logout button
@@ -17,6 +20,7 @@ if(isset($_GET['logout']) && $_GET['logout'] == "true" ){
 // Sign up back end
 // 
 
+if($action == 'signup'){
     $firstName = (isset($_REQUEST['firstName'])) ? $_REQUEST['firstName']: "";
     $lastName = (isset($_REQUEST['lastName'])) ? $_REQUEST['lastName']: "";
     $age = (isset($_REQUEST['age'])) ? $_REQUEST['age']: "";
@@ -60,12 +64,35 @@ if(isset($_GET['logout']) && $_GET['logout'] == "true" ){
     } else {
         header("location: sign_up.php?signup=fail");
     }
-
+}
 // 
 // Login Backend
 // 
+if($action == 'login') {
+    if(!isset($_SESSION['userToken'])) $_SESSION['userToken'] = 0;
 
+    $userNameLoginVar = $_REQUEST['userNameLogin'];
+    $passwordLoginVar = $_REQUEST['passwordLogin'];
 
+    $loginQuery = "
+        SELECT id, userPassword
+        FROM maanliUserLogin
+        WHERE username = '$userNameLoginVar'
+    ";
+
+    $result = $database->Query($loginQuery)->fetch_object();
+
+    $passVerify = password_verify($passwordLoginVar, $result->userPassword);
+
+    if($passVerify){
+        $_SESSION['userToken'] = $result->id;
+        header("location: index.php");
+        exit;
+    } else {
+        header("location: Login.php?login=fail");
+        exit;
+    }
+}
 // 
 // Update Backend
 // 
