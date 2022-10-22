@@ -110,3 +110,58 @@ form #fail_text {
 }
 
 /* Update */
+
+/* Match */
+#match-wrapper {
+  display: flex;
+  height: 80vh;
+  width: 60vw;
+}
+
+#match-info {
+  height: 100%;
+  width: 40%;
+  background-color: green;
+}
+
+#match-info > * {
+  margin-top: 5%;
+}
+
+#match-info article {
+  padding-left: 20%;
+}
+
+#match-info article:first-child {
+  padding-top: 10%;
+}
+
+#match-name {
+  margin-bottom: 5vh;
+}
+
+#match-image {
+  height: 100%;
+  width: 50%;
+  background-color: yellow;
+}
+
+.description-tag {
+  padding-left: 15%;
+  color: var(--green);
+}
+
+.description-tag:nth-child(4) {
+  margin-top: 20%;
+}
+
+#match-interest {
+  display: flex;
+  gap: 2em;
+}
+
+#match-nav {
+  height: 100%;
+  width: 10%;
+  background-color: red;
+}
