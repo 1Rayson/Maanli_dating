@@ -25,6 +25,7 @@
     </article>
     <wrapper class="wrapper">
         <section class="info">
+            <a href="backend.php?logout=true" id="logout-btn">Log Out</a>
             <p class="description-tag">About</p>
             <article>
                 <div class="name_div">
