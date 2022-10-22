@@ -120,11 +120,7 @@
                 <img id="match_picture" src="/img/placeholder.jpg" alt="match image">
         </section>
         <section id="match-nav">
-<<<<<<< Updated upstream
-            <a id="match_next-button" href="backend.php?nextMatch=true">Next match</a>
-=======
-            <a id="match_next-button" href="index-backend.php?nextMatch=true">></a>
->>>>>>> Stashed changes
+            <a id="match_next-button" href="backend.php?nextMatch=true">></a>
         </section>
     </wrapper>
 </body>
