@@ -37,9 +37,9 @@
                 </div>    
                 <div class="details">
                     <p id="match_age"><?php echo $matchList[$matchArrayId]['age'] ?></p>
-                    <p class="match_divider">|</p>
+                    <p class="divider">|</p>
                     <p id="match_gender"><?php echo $matchList[$matchArrayId]['gender'] ?></p>
-                    <p class="match_divider">|</p>
+                    <p class="divider">|</p>
                     <p id="match_height"><?php echo $matchList[$matchArrayId]['height'] ?> cm</p>
                 </div>
             </article>
