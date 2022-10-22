@@ -22,7 +22,7 @@
 <body>
     <section id="update">
         <h1>Update profile</h1>
-
+        <?php if(isset($_GET['fail']) && $_GET['fail'] == "update") echo "<p>Fill in all fields</p>" ?>
         <form action="backend.php?action=update" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" value="<?php echo $login_result->username; ?>">
@@ -69,4 +69,19 @@
          </form>
     </section> 
 </body>
+<script>
+    var youngerSlider = document.getElementById("younger");
+    var olderSlider = document.getElementById("older");
+    var yOutput = document.getElementById("vYounger");
+    var oOutput = document.getElementById("vOlder");
+    yOutput.innerHTML = youngerSlider.value;
+    oOutput.innerHTML = olderSlider.value;
+
+    youngerSlider.oninput = function() {
+        yOutput.innerHTML = this.value;
+    }
+    olderSlider.oninput = function() {
+        oOutput.innerHTML = this.value;
+    }
+</script>
 </html>

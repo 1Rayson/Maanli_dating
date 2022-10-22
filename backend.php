@@ -113,9 +113,11 @@ if($action == 'update') {
 
     if($firstName !="" && $lastName !="" && $age !="" && $gender !="" && $height !="" && $preferedGender !="" && $minAge !="" && $maxAge !="" && $username !="" && $password !="") {
         $passEncrypt = password_hash($password, PASSWORD_DEFAULT);
-        $userSQL = "CALL UpdateMaanliUserData('$user_id', '$firstName', '$lastName','$age', '$gender', '$height', '$preferedGender', '$minAge', '$maxAge', '$username', '$passEncrypt');";    
-        $mySQL->Query($userSQL);
-        header("location: ../profile.php");
+        $userSQL = "CALL UpdateMaanliUserData('$user_id', '$firstName', '$lastName','$age', '$gender', '$height', '$preferedGender', '$minAge', '$maxAge', '$username', '$passEncrypt');";  
+        $database->Query($userSQL);
+        header("location: profile.php");
+    } else {
+        header("location: update.php?fail=update");
     }
 }
 // 
