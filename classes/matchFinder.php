@@ -22,7 +22,7 @@
 
         public function findMatches($givenPreferences, $withInterest = true){
             $matchQuery = "
-                SELECT id, firstName, lastName, age, gender 
+                SELECT id, firstName, lastName, age, gender, height 
                 FROM maanliUserProfile
                 WHERE id != $this->userToken
             ";
