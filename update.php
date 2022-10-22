@@ -65,8 +65,34 @@
             <label for="older">Max years older: <span id="vOlder"></span></label>
             <input type="range" min="0" max="100" value="<?php echo $preference_result->maxAge; ?>" name="older" id="older">
             
+            <label for="interests">
+                Hobbies / interests
+                <select name="interest1" id="interest1">
+                    <option value="none">none</option>
+                    <option value="gamer">gamer</option>
+                    <option value="fitness">fitness</option>
+                    <option value="outdoors">outdoors</option>
+                    <option value="travel">travel</option>
+                </select>
+                <select name="interest2" id="interest2">
+                    <option value="none">none</option>
+                    <option value="gamer">gamer</option>
+                    <option value="fitness">fitness</option>
+                    <option value="outdoors">outdoors</option>
+                    <option value="travel">travel</option>
+                </select>
+                <select name="interest3" id="interest3">
+                    <option value="none">none</option>
+                    <option value="gamer">gamer</option>
+                    <option value="fitness">fitness</option>
+                    <option value="outdoors">outdoors</option>
+                    <option value="travel">travel</option>
+                </select>
+            </label>
+
             <input type="submit" value="Submit">
          </form>
+         <a href="profile.php">Back to profile</a>
     </section> 
 </body>
 <script>

@@ -97,6 +97,7 @@
                     <option value="outdoors">outdoors</option>
                     <option value="travel">travel</option>
                 </select>
+            </label>
             <input type="submit" value="Sign Up">
         </form>
         
