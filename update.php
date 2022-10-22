@@ -24,46 +24,69 @@
         <h1>Update profile</h1>
         <?php if(isset($_GET['fail']) && $_GET['fail'] == "update") echo "<p>Fill in all fields</p>" ?>
         <form action="backend.php?action=update" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" value="<?php echo $login_result->username; ?>">
             
-            <label for="userPassword">Password:</label>
-            <input type="password" id="userPassword" name="userPassword">
+            <label for="username">
+                Username:
+                <input type="text" id="username" name="username" value="<?php echo $login_result->username; ?>">
+            </label>
             
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" value="<?php echo $profile_result->firstName; ?>">
+            <label for="userPassword">
+                Password:                
+                <input type="password" id="userPassword" name="userPassword">
+            </label>
             
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" value="<?php echo $profile_result->lastName; ?>">
+            <label for="firstName">
+                First Name:
+                <input type="text" id="firstName" name="firstName" value="<?php echo $profile_result->firstName; ?>">
+            </label>
             
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" value="<?php echo $profile_result->age; ?>">
+            <label for="lastName">
+                Last Name:
+                <input type="text" id="lastName" name="lastName" value="<?php echo $profile_result->lastName; ?>">
+            </label>
             
-            <label for="gender">Gender:</label>
-            <select id="gender "name="gender">
-                <option value="<?php echo $profile_result->gender; ?>" selected><?php echo $profile_result->gender; ?></option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="nonbinary">Nonbinary</option>
-                <option value="other">Other</option>
-            </select>
+            <label for="age">
+                Age:
+                <input type="number" id="age" name="age" value="<?php echo $profile_result->age; ?>">
+            </label>
             
-            <label for="height">Height in CM:</label>
-            <input type="number" id="height" name="height" value="<?php echo $profile_result->height; ?>">
+            <label for="gender">
+                Gender:
+                <select id="gender "name="gender">
+                    <option value="<?php echo $profile_result->gender; ?>" selected><?php echo $profile_result->gender; ?></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="nonbinary">Nonbinary</option>
+                    <option value="other">Other</option>
+                </select>
+            </label>
             
-            <label for="prefer_gender">Prefered gender:</label>
-            <select id="prefer_gender" name="prefer_gender">
-                <option value="<?php echo $preference_result->prefer_gender; ?>" selected><?php echo $preference_result->prefer_gender; ?></option>
-                <option value="any">Any</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
+            
+            <label for="height">
+                Height in CM:                
+                <input type="number" id="height" name="height" value="<?php echo $profile_result->height; ?>">
+            </label>
+            
+            <label for="prefer_gender">
+                Prefered gender:
+                <select id="prefer_gender" name="prefer_gender">
+                    <option value="<?php echo $preference_result->prefer_gender; ?>" selected><?php echo $preference_result->prefer_gender; ?></option>
+                    <option value="any">Any</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </label>
+            
 
-            <label for="younger">Max years younger: <span id="vYounger"></span></label>
-            <input type="range" min="0" max="100" value="<?php echo $preference_result->minAge; ?>" name="younger" id="younger">
+            <label for="younger">
+                <p>Max years younger: <span id="vYounger"></span></p>
+                <input type="range" min="0" max="100" value="<?php echo $preference_result->minAge; ?>" name="younger" id="younger">
+            </label>
             
-            <label for="older">Max years older: <span id="vOlder"></span></label>
-            <input type="range" min="0" max="100" value="<?php echo $preference_result->maxAge; ?>" name="older" id="older">
+            <label for="older">
+                <p>Max years older: <span id="vOlder"></span></p>
+                <input type="range" min="0" max="100" value="<?php echo $preference_result->maxAge; ?>" name="older" id="older">
+            </label>
             
             <label for="interests">
                 Hobbies / interests
@@ -91,6 +114,7 @@
             </label>
 
             <input type="submit" value="Submit">
+
          </form>
          <a href="profile.php">Back to profile</a>
     </section> 

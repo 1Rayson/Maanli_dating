@@ -57,14 +57,12 @@
                 <input type="password" name="password" placeholder="Password">
             </label>
             <label for="younger">
-                Younger 
-                <input type="range" min="0" max="100" value="0" name="younger" id="younger">
                 <p>max years younger: <span id="vYounger"></span></p>
+                <input type="range" min="0" max="100" value="0" name="younger" id="younger">
             </label>
             <label for="older">
-                Older
-                <input type="range" min="0" max="100" value="0" name="older" id="older">
                 <p> Max years older: <span id="vOlder"></span></p>
+                <input type="range" min="0" max="100" value="0" name="older" id="older">
             </label>
             <label for="prefer_gender">
                 Prefered gender

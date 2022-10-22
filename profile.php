@@ -25,7 +25,6 @@
     </article>
     <wrapper class="wrapper">
         <section class="info">
-            <a href="backend.php?logout=true" id="logout-btn">Log Out</a>
             <p class="description-tag">About</p>
             <article>
                 <div class="name_div">
@@ -57,8 +56,9 @@
             </article>
 
             <p class="description-tag">Administrative actions</p>
-            <article>
+            <article id="adm_btns">
                 <a href="update.php" id="update-btn">Update</a>
+                <a href="backend.php?logout=true" id="logout-btn">Log Out</a>
             </article>
         </section>
         <section class="image">
