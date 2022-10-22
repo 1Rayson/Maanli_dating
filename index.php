@@ -27,15 +27,15 @@
     <article id="profile-btn-article">
         <a id="profile-button" href="profile.php">My profile</a>
     </article>
-    <wrapper id="match-wrapper">
-        <section id="match-info">
+    <wrapper class="wrapper">
+        <section class="info">
             <p class="description-tag">About</p>
             <article>
-                <div id="match_name_div">
+                <div class="name_div">
                     <h2 id="match_name"><?php echo $matchList[$matchArrayId]['firstName'] ?></h2>
                     <h3 id="match_last_name"><?php echo $matchList[$matchArrayId]['lastName'] ?></h3>
                 </div>    
-                <div id="match_details">
+                <div class="details">
                     <p id="match_age"><?php echo $matchList[$matchArrayId]['age'] ?></p>
                     <p class="match_divider">|</p>
                     <p id="match_gender"><?php echo $matchList[$matchArrayId]['gender'] ?></p>
@@ -45,7 +45,7 @@
             </article>
             
             <p class="description-tag">Interests</p>
-            <article id="match_interest">
+            <article class="interests">
                 <?php
                     $matchInterest = $matchList[$matchArrayId]['matchInterestList'];
                     
@@ -55,7 +55,7 @@
                 ?>
             </article>
         </section>
-        <section id="match-image">
+        <section class="image">
                 <img id="match_picture" src="/img/placeholder.jpg" alt="match image">
         </section>
         <section id="match-nav">

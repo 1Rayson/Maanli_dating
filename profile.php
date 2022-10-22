@@ -6,7 +6,9 @@
     $mySQL = new MySQL(true);
     $user_id = $_SESSION['userToken'];
     $profile = "SELECT firstName, lastName, age, gender, height FROM maanliUserProfile WHERE id=$user_id";
-    $result = $mySQL->Query($profile)->fetch_object();
+    $interests = "SELECT interestName FROM maanliUserInterests WHERE userID=$user_id";
+    $profile_result = $mySQL->Query($profile)->fetch_object();
+    $interests_result = $mySQL->Query($interests);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,28 +20,49 @@
     <title>Profile - Maanli Dating</title>
 </head>
 <body>
-    <section id="profile">
-        <div id="top-bar">
-            <h1>Profile</h1>
-            <a href="backend.php?logout=true" id="logout-btn">Log Out</a>
-        </div>
+    <article id="profile-btn-article">
+        <a id="index-button" href="index.php">< Matches</a>
+    </article>
+    <wrapper class="wrapper">
+        <section class="info">
+            <p class="description-tag">About</p>
+            <article>
+                <div class="name_div">
+                    <h2 id="first_name"><?php echo $profile_result->firstName; ?></h2>
+                    <h3 id="last_name"> <?php echo $profile_result->lastName; ?></h3>
+                </div>    
+                <div class="details">
+                    <p id="age"><?php echo $profile_result->age; ?></p>
+                    <p class="divider">|</p>
+                    <p id="gender"><?php echo $profile_result->gender; ?></p>
+                    <p class="divider">|</p>
+                    <p id="height"><?php echo $profile_result->height; ?> cm</p>
+                </div>
+            </article>
+            
+            <p class="description-tag">Interests</p>
+            <article class="interests">
+                <?php
 
-        <h2><?php echo $result->firstName; ?> <?php echo $result->lastName; ?></h2>
-        <p>Age: <?php echo $result->age; ?> years old</p>
-        <p>Gender: <?php echo $result->gender; ?></p>
-        <p>Height: <?php echo $result->height; ?> cm</p>
-        <article>
-            <h2>My interests:</h2>
-            <div id="interests">
+                $InterestList = [];
+                while($row = $interests_result->fetch_object()) {
+                    $InterestList[] = $row->interestName;
+                }
 
-            </div>
-        </article>
-        <article>
-            <h2>Administrative actions</h2>
-            <a href="update.php"><button id="update-btn" type="button">Update</button></a>
-            <!--<button id="delete-btn" type="button" formaction="classes/delete.php">Delete</button>-->
-        </article>
-        <a href="index.php"><button id="back-to-matches-btn" type="button">Back to Matches</button></a>
-    </section> 
+                for($i=0; $i < count($InterestList); $i++){
+                        echo "<div class='match_interst-item'>".$InterestList[$i]."</div>";
+                    }
+                ?>
+            </article>
+
+            <p class="description-tag">Administrative actions</p>
+            <article>
+                <a href="update.php" id="update-btn">Update</a>
+            </article>
+        </section>
+        <section class="image">
+                <img id="picture" src="/img/placeholder.jpg" alt="profile picture">
+        </section>
+    </wrapper>
 </body>
 </html>
