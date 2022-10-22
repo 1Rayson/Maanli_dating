@@ -35,8 +35,10 @@
                 AND age < $givenPreferences->age + $givenPreferences->maxAge
             ";
 
-            $matchList = $this->database->Query($matchQuery);
-            return $matchList;
+            $matchList = [];
+            $matchFetch = $this->database->Query($matchQuery);
+            while ($match = $matchFetch->fetch_assoc())
+                $matchList[] = $match;
 
             if($withInterest) {
 
@@ -44,7 +46,7 @@
                     $matchInterestQuery = "
                         SELECT interestName, userID
                         FROM maanliUserInterests
-                        WHERE ".$matchList[$i]->id." = userID
+                        WHERE ".$matchList[$i]['id']." = userID
                     ";
                     $matchInterestFetch = $this->database->Query($matchInterestQuery);
             
@@ -53,7 +55,7 @@
                         $matchInterestList[] = $row->interestName;
                     }
             
-                    $matchList[$i]->matchInterestList = $matchInterestList;
+                    $matchList[$i]['matchInterestList'] = $matchInterestList;
                 }
             }
 

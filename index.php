@@ -9,27 +9,8 @@
     $matchFinder = new matchFinder($userToken, $database);
 
     $userPreferences = $matchFinder->getUserPreferences();
-
     $matchList = $matchFinder->findMatches($userPreferences);
-    var_dump($matchList);
-    exit;
-
-    /* for($i=0; $i<sizeof($matchList); $i++){
-        $matchInterestQuery = "
-            SELECT interestName, userID
-            FROM maanliUserInterests
-            WHERE ".$matchList[$i]->id." = userID
-        ";
-        $matchInterestFetch = $database->Query($matchInterestQuery);
-
-        $matchInterestList = [];
-        while($row = $matchInterestFetch->fetch_object()) {
-            $matchInterestList[] = $row->interestName;
-        }
-
-        $matchList[$i]->matchInterestList = $matchInterestList;
-    } */
-
+    
     $matchArrayId = isset($_SESSION['matchArrayId']) && $_SESSION['matchArrayId'] < sizeof($matchList) ? $_SESSION['matchArrayId'] : $_SESSION['matchArrayId'] = 0;
     
 ?>
@@ -66,9 +47,9 @@
             <p class="description-tag">Interests</p>
             <article id="match_interest">
                 <?php
-                $matchInterest = $matchList[$matchArrayId]->matchInterestList;
-                
-                for($i=0; $i<sizeof($matchInterest); $i++){
+                    $matchInterest = $matchList[$matchArrayId]['matchInterestList'];
+                    
+                    for($i=0; $i<sizeof($matchInterest); $i++){
                         echo "<div class='match_interst-item'>".$matchInterest[$i]."</div>";
                     }
                 ?>
