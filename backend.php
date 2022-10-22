@@ -58,6 +58,7 @@ if($action == 'signup'){
                 VALUES
                     ('$interest', '$result->id')
             ";
+            $database->Query($interestQuery);
         }
         
         header("location: login.php");
@@ -97,7 +98,6 @@ if($action == 'login') {
 // Update Backend
 // 
 if($action == 'update') {
-      if (isset($_SESSION['userToken'])) {
         $user_id = $_SESSION['userToken'];
         $firstName = (isset($_REQUEST['firstName'])) ? $_REQUEST['firstName']: "";
         $lastName = (isset($_REQUEST['lastName'])) ? $_REQUEST['lastName']: "";
@@ -109,12 +109,35 @@ if($action == 'update') {
         $preferedGender = (isset($_REQUEST['prefer_gender'])) ? $_REQUEST['prefer_gender']: "";
         $minAge = (isset($_REQUEST['younger'])) ? $_REQUEST['younger']: "";
         $maxAge = (isset($_REQUEST['older'])) ? $_REQUEST['older']: "";
-    }
+        $interests =[];
+    
+        if($_REQUEST['interest1'] != "none")$interests[] = $_REQUEST['interest1'];
+        if($_REQUEST['interest2'] != "none") $interests[] = $_REQUEST['interest2'];
+        if($_REQUEST['interest3'] != "none") $interests[] = $_REQUEST['interest3'];
+    
+        if($firstName !="" && $lastName !="" && $age !="" && $gender !="" && $height !="" && $minAge !="" && $maxAge !="" && $preferedGender !="" && $username !="" && $password !="" ){
+    
+            $passEncrypt = password_hash($password, PASSWORD_DEFAULT);
+            $userSQL = "CALL UpdateMaanliUserData('$firstName', '$lastName','$age', '$gender', '$height', '$minAge', '$maxAge', '$preferedGender', '$username', '$passEncrypt' );";    
+            $database->Query($userSQL);
 
-    if($firstName !="" && $lastName !="" && $age !="" && $gender !="" && $height !="" && $preferedGender !="" && $minAge !="" && $maxAge !="" && $username !="" && $password !="") {
-        $passEncrypt = password_hash($password, PASSWORD_DEFAULT);
-        $userSQL = "CALL UpdateMaanliUserData('$user_id', '$firstName', '$lastName','$age', '$gender', '$height', '$preferedGender', '$minAge', '$maxAge', '$username', '$passEncrypt');";  
-        $database->Query($userSQL);
+            $deleteInterestQuery = "
+                DELETE FROM maanliUserInterests
+                WHERE userID = '$user_id'
+            ";
+            $database->Query($deleteInterestQuery);
+    
+            for($i=0; $i < sizeof($interests); $i++){
+                $interest = $interests[$i];
+                $interestQuery = "
+                    INSERT INTO maanliUserInterests
+                        (interestName, userID)
+                    VALUES
+                        ('$interest', $user_id)
+                ";
+                $database->Query($interestQuery);
+            }
+
         header("location: profile.php");
     } else {
         header("location: update.php?fail=update");
