@@ -23,7 +23,7 @@
     <section id="update">
         <h1>Update profile</h1>
 
-        <form action="updateBackend.php" method="post">
+        <form action="backend.php?action=update" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" value="<?php echo $login_result->username; ?>">
             
