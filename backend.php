@@ -123,7 +123,7 @@ if($action == 'update') {
         if($firstName !="" && $lastName !="" && $age !="" && $gender !="" && $height !="" && $minAge !="" && $maxAge !="" && $preferedGender !="" && $username !="" && $password !="" ){
     
             $passEncrypt = password_hash($password, PASSWORD_DEFAULT);
-            $userSQL = "CALL UpdateMaanliUserData('$user_id', '$firstName', '$lastName','$age', '$gender', '$height', '$minAge', '$maxAge', '$preferedGender', '$username', '$passEncrypt' );";
+            $userSQL = "CALL UpdateMaanliUserData('$user_id', '$firstName', '$lastName','$age', '$gender', '$height', '$preferedGender', '$minAge', '$maxAge', '$username', '$passEncrypt' );";
             $database->Query($userSQL);
 
             $deleteInterestQuery = "
