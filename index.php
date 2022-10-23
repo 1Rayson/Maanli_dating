@@ -60,7 +60,7 @@
                 <img id="match_picture" src="/img/placeholder.jpg" alt="match image">
         </section>
         <section id="match-nav">
-            <a id="match_next-button" href="backend.php?nextMatch=true">></a>
+            <a id="match_next-button" href="backend.php?action=nextMatch">></a>
         </section>
     </wrapper>
 </body>

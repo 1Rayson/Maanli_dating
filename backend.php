@@ -12,7 +12,8 @@ $action = $_GET['action'] ;
 // 
 if(isset($_GET['logout']) && $_GET['logout'] == "true" ){
     $_SESSION['userToken'] = NULL;
-    header('location: Login.php');
+    // header('location: Login.php');
+    echo "<script>window.location.href='Login.php';</script>";
     exit;
 }
 
@@ -61,9 +62,11 @@ if($action == 'signup'){
             $database->Query($interestQuery);
         }
         
-        header("location: login.php");
+        // header("location: Login.php");
+        echo "<script>window.location.href='Login.php';</script>";
     } else {
-        header("location: sign_up.php?signup=fail");
+        // header("location: sign_up.php?signup=fail");
+        echo "<script>window.location.href='sign_up.php?signup=fail';</script>";
     }
 }
 // 
@@ -87,10 +90,12 @@ if($action == 'login') {
 
     if($passVerify){
         $_SESSION['userToken'] = $result->id;
-        header("location: index.php");
+        // header("location: index.php");
+        echo "<script>window.location.href='index.php';</script>";
         exit;
     } else {
-        header("location: Login.php?login=fail");
+        // header("location: Login.php?login=fail");
+        echo "<script>window.location.href='Login.php?login=fail';</script>";
         exit;
     }
 }
@@ -138,17 +143,20 @@ if($action == 'update') {
                 $database->Query($interestQuery);
             }
 
-        header("location: profile.php");
+        // header("location: profile.php");
+        echo "<script>window.location.href='profile.php';</script>";
     } else {
-        header("location: update.php?fail=update");
+        // header("location: update.php?fail=update");
+        echo "<script>window.location.href='update.php?fail=update';</script>";
     }
 }
 // 
 // Index backend
 // 
-    if($_GET['nextMatch']){
+    if($action == "nextMatch"){
         $_SESSION['matchArrayId']++;
-        header("location: index.php");
+        // header("location: index.php");
+        echo "<script>window.location.href='index.php';</script>";
     }
 
 ?>
