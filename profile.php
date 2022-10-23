@@ -3,7 +3,7 @@
     if(!isset($_SESSION['userToken'])) header("location: Login.php");
     
     include_once("classes/MySQL.php");
-    $mySQL = new MySQL(true);
+    $mySQL = new mySQL(true);
     $user_id = $_SESSION['userToken'];
     $profile = "SELECT firstName, lastName, age, gender, height FROM maanliUserProfile WHERE id=$user_id";
     $interests = "SELECT interestName FROM maanliUserInterests WHERE userID=$user_id";
